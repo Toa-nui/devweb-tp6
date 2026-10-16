@@ -245,13 +245,19 @@ Ce projet est réalisé dans le cadre du cours de développement web. Il s'agit 
 
 Fonctionnalités & Avancement
 
-Partie 1 : Initialisation du projet :
+-Partie 1 : Initialisation du projet :
+
   -Configuration d'Express, des variables d'environnement ('.env') et des scripts npm.
+
   -Implémentation des routes de base sous '/api-v1/' ('GET /', 'POST /', 'GET /error', réponses 501 pour les routes non encore développées).
-Partie 2 : API v1 (Base de données SQLite)
-Partie 3 : HTML & Négociation de contenu (API v2)
-Partie 4 : Client AJAX
-Partie 5 : Suppression & Authentification
+
+-Partie 2 : API v1 (Base de données SQLite)
+
+-Partie 3 : HTML & Négociation de contenu (API v2)
+
+-Partie 4 : Client AJAX
+
+-Partie 5 : Suppression & Authentification
 
 Lancement du projet
 
