@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "node --watch server.js",
-    "prod": "node server.js"
+    "prod": "node server.js",
+    "format": "prettier --write \"**/*.mjs\""
   },
   "dependencies": {
     "dotenv": "^18.0.8",

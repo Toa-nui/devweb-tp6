@@ -246,8 +246,8 @@ Ce projet est réalisé dans le cadre du cours de développement web. Il s'agit 
 Fonctionnalités & Avancement
 
 Partie 1 : Initialisation du projet :
-  - Configuration d'Express, des variables d'environnement ('.env') et des scripts npm.
-  - Implémentation des routes de base sous '/api-v1/' ('GET /', 'POST /', 'GET /error', réponses 501 pour les routes non encore développées).
+  -Configuration d'Express, des variables d'environnement ('.env') et des scripts npm.
+  -Implémentation des routes de base sous '/api-v1/' ('GET /', 'POST /', 'GET /error', réponses 501 pour les routes non encore développées).
 Partie 2 : API v1 (Base de données SQLite)
 Partie 3 : HTML & Négociation de contenu (API v2)
 Partie 4 : Client AJAX
@@ -255,6 +255,17 @@ Partie 5 : Suppression & Authentification
 
 Lancement du projet
 
-1. Installation des dépendances :
-   ```bash
+1.Installation des dépendances :
+   
    npm install
+
+2.Lancement en mode développement :
+   
+   npm run dev
+
+3.Accès au serveur :
+
+  -API : http://localhost:8080/api-v1/
+
+  -Documentation interactive (Swagger UI) : http://localhost:8080/api-docs/
+
