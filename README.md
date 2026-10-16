@@ -238,4 +238,23 @@ Avec le niveau DEBUG, les messages de niveau DEBUG, INFO, WARN et ERROR sont aff
 
 ...
 
-LEVIONNOIS Toanui
+
+Réducteur d'URL en Node.js / Express
+
+Ce projet est réalisé dans le cadre du cours de développement web. Il s'agit d'un service complet de réduction d'URL (type Bitly / TinyURL) avec API REST, base de données SQLite et client web.
+
+Fonctionnalités & Avancement
+
+Partie 1 : Initialisation du projet :
+  - Configuration d'Express, des variables d'environnement ('.env') et des scripts npm.
+  - Implémentation des routes de base sous '/api-v1/' ('GET /', 'POST /', 'GET /error', réponses 501 pour les routes non encore développées).
+Partie 2 : API v1 (Base de données SQLite)
+Partie 3 : HTML & Négociation de contenu (API v2)
+Partie 4 : Client AJAX
+Partie 5 : Suppression & Authentification
+
+Lancement du projet
+
+1. Installation des dépendances :
+   ```bash
+   npm install
