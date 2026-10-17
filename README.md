@@ -258,8 +258,11 @@ Fonctionnalités & Avancement
   - Connexion SQLite et création automatique de la table dans 'database/database.js'.
   - Implémentation complète de l'API v1 dans 'router/api-v1.js' (raccourcissement, comptage des visites, statut et redirection HTTP 302).
 
-- [ ] Partie 3 : HTML & Négociation de contenu (API v2)
-
+- [x] Partie 3 : HTML & Négociation de contenu (API v2)
+  - Support de 'res.format()' pour répondre en JSON ou HTML selon l'en-tête 'Accept'.
+  - Intégration du moteur de rendu 'ejs' et création de la vue 'views/root.ejs'.
+  - Implémentation du routeur '/api-v2/' avec gestion des formulaires et redirection.
+  
 - [ ] Partie 4 : Client AJAX
 
 - [ ] Partie 5 : Suppression & Authentification
