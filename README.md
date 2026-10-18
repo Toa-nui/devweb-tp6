@@ -277,8 +277,8 @@ Fonctionnalités & Avancement
 ## Démonstration et Tests
 
 ### Interface Swagger OpenAPI
-![Swagger Auth](Capture d'écran 2026-10-18 175958.png)
+![Swagger Auth](docs/swagger.png)
 
 ### Tests des routes avec curl
-![Tests Curl](Capture d'écran 2026-10-18 173209.png)
-![Tests Curl](Capture d'écran 2026-10-18 173117.png)
+![Tests Curl 201 401 403](docs/curl-201-401-403.png)
+![Tests Curl 200](docs/curl-200.png)
