@@ -262,8 +262,11 @@ Fonctionnalités & Avancement
   - Support de 'res.format()' pour répondre en JSON ou HTML selon l'en-tête 'Accept'.
   - Intégration du moteur de rendu 'ejs' et création de la vue 'views/root.ejs'.
   - Implémentation du routeur '/api-v2/' avec gestion des formulaires et redirection.
-  
-- [ ] Partie 4 : Client AJAX
+
+- [x] Partie 4 : Client AJAX (tag: client-ajax)
+ - Implémentation de l'interface client SPA dans 'static/index.html' et 'static/client.html'.
+ - Communication asynchrone avec l'API v2 via 'fetch()' dans 'static/app.js'.
+ - Intégration de l'API Clipboard pour la copie rapide des liens raccourcis.
 
 - [ ] Partie 5 : Suppression & Authentification
 
