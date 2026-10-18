@@ -28,8 +28,10 @@ router.post('/', (req, res) => {
   }
 
   const shortUrl = Math.random().toString(36).substring(2, 8);
-  const stmt = db.prepare('INSERT INTO urls (short_url, original_url) VALUES (?, ?)');
-  stmt.run(shortUrl, url);
+  const secret = Math.random().toString(36).substring(2, 8); // Génération du secret aléatoire
+
+  const stmt = db.prepare('INSERT INTO urls (short_url, original_url, secret) VALUES (?, ?, ?)');
+  stmt.run(shortUrl, url, secret);
 
   const newRow = db.prepare('SELECT * FROM urls WHERE short_url = ?').get(shortUrl);
   const fullShortUrl = `${req.protocol}://${req.get('host')}/api-v2/${shortUrl}`;
@@ -39,7 +41,8 @@ router.post('/', (req, res) => {
       res.status(201).json({
         message: 'URL raccourcie avec succès',
         short_url: shortUrl,
-        original_url: url
+        original_url: url,
+        secret: secret
       });
     },
     'text/html': () => {
@@ -68,11 +71,11 @@ router.get('/:url', (req, res) => {
 
   res.format({
     'application/json': () => {
-      // En JSON, renvoie les informations sur le lien (remplace l'ancienne route /status/:url)
-      res.json(row);
+      // Exclure le secret pour la réponse JSON (exigence du sujet)
+      const { secret, ...dataWithoutSecret } = row;
+      res.json(dataWithoutSecret);
     },
     'text/html': () => {
-      // En HTML, incrémente le compteur de visites et redirige
       db.prepare('UPDATE urls SET visit = visit + 1 WHERE short_url = ?').run(url);
       res.redirect(row.original_url);
     },
@@ -80,6 +83,32 @@ router.get('/:url', (req, res) => {
       res.status(406).send('Not Acceptable');
     }
   });
+});
+
+// DELETE /api-v2/:url
+router.delete('/:url', (req, res) => {
+  const { url } = req.params;
+  const apiKey = req.headers['x-api-key'];
+
+  // 1. Recherche du lien
+  const row = db.prepare('SELECT * FROM urls WHERE short_url = ?').get(url);
+  if (!row) {
+    return res.status(404).json({ error: 'URL non trouvée' });
+  }
+
+  // 2. Vérification de la présence de l'en-tête X-API-Key
+  if (!apiKey) {
+    return res.status(401).json({ error: 'Clé d\'API manquante dans l\'en-tête X-API-Key' });
+  }
+
+  // 3. Vérification du secret
+  if (apiKey !== row.secret) {
+    return res.status(403).json({ error: 'Clé d\'API invalide' });
+  }
+
+  // 4. Suppression du lien
+  db.prepare('DELETE FROM urls WHERE short_url = ?').run(url);
+  return res.status(200).json({ message: 'Lien supprimé avec succès' });
 });
 
 export default router;
