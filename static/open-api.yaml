@@ -16,13 +16,13 @@ paths:
       security:
         - ApiKeyAuth: []
       responses:
-        '200':
+        "200":
           description: Lien supprimé avec succès
-        '401':
+        "401":
           description: En-tête X-API-Key manquant
-        '403':
+        "403":
           description: Clé X-API-Key invalide
-        '404':
+        "404":
           description: Lien non trouvé
 
 components:

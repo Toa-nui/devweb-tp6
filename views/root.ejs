@@ -1,38 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <title>devweb-shortener</title>
-  <style>
-    body { font-family: sans-serif; margin: 40px; }
-    .footer { background-color: #ddd; padding: 10px; margin-top: 20px; text-align: center; font-size: 0.9em; }
-    form { margin-top: 15px; }
-    input[type="url"] { width: 100%; padding: 8px; box-sizing: border-box; margin-bottom: 10px; }
-    button { padding: 8px 16px; width: 100%; }
-  </style>
+    <meta charset="UTF-8">
+    <title>devweb-shortener</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+
+        .footer {
+            background-color: #ddd;
+            padding: 10px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        form {
+            margin-top: 15px;
+        }
+
+        input[type="url"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            width: 100%;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>devweb-shortener</h1>
+    <h1>devweb-shortener</h1>
 
-  <% if (typeof createdLink !== 'undefined' && createdLink) { %>
-    <p>
-      <a href="<%= createdLink.fullShortUrl %>"><%= createdLink.fullShortUrl %></a> 
-      created at <%= createdLink.created_at %>
-    </p>
-  <% } else { %>
-    <p>There are <%= count %> links</p>
+    <% if (typeof createdLink !=='undefined' && createdLink) { %>
+        <p>
+            <a href="<%= createdLink.fullShortUrl %>">
+                <%= createdLink.fullShortUrl %>
+            </a>
+            created at <%= createdLink.created_at %>
+        </p>
+        <% } else { %>
+            <p>There are <%= count %> links</p>
 
-    <h2>Add a new link</h2>
-    <form method="post" action="/api-v2/" id="submit-link">
-      <label for="url">Type the URL to shorten</label>
-      <input name="url" id="url" type="url" placeholder="https://perdu.com" required />
-      <button type="submit">Submit</button>
-    </form>
-  <% } %>
+            <h2>Add a new link</h2>
+            <form method="post" action="/api-v2/" id="submit-link">
+                <label for="url">Type the URL to shorten</label>
+                <input name="url" id="url" type="url" placeholder="https://perdu.com" required />
+                <button type="submit">Submit</button>
+            </form>
+            <% } %>
 
-  <div class="footer">
-    <%= new Date().toLocaleString() %> devweb-shortener v0.1.0<br>
-    see <a href="https://romulusfr.github.io/unc-s4-devweb/">https://romulusfr.github.io/unc-s4-devweb/</a>
-  </div>
+                <div class="footer">
+                    <%= new Date().toLocaleString() %> devweb-shortener v0.1.0<br>
+                        see <a
+                            href="https://romulusfr.github.io/unc-s4-devweb/">https://romulusfr.github.io/unc-s4-devweb/</a>
+                </div>
 </body>
+
 </html>
