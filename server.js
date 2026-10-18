@@ -8,7 +8,7 @@ const app = express();
 
 app.disable('x-powered-by');
 
-// Configuration du moteur de templates EJS
+// Configuration EJS
 app.set('view engine', 'ejs');
 app.set('views', path.join(process.cwd(), 'views'));
 
@@ -17,9 +17,11 @@ app.use((req, res, next) => {
   next();
 });
 
-// Middleware pour analyser le JSON et les données de formulaires HTML
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Servir les fichiers statiques du dossier static
+app.use(express.static('static'));
 
 app.get('/favicon.ico', (req, res) => {
   res.sendFile(path.join(process.cwd(), 'static', 'logo_univ_16.png'));
