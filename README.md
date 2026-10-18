@@ -268,21 +268,9 @@ Fonctionnalités & Avancement
  - Communication asynchrone avec l'API v2 via 'fetch()' dans 'static/app.js'.
  - Intégration de l'API Clipboard pour la copie rapide des liens raccourcis.
 
-- [ ] Partie 5 : Suppression & Authentification
-
-Lancement du projet
-
-1.Installation des dépendances :
-   
-   npm install
-
-2.Lancement en mode développement :
-   
-   npm run dev
-
-3.Accès au serveur :
-
-  -API : http://localhost:8080/api-v1/
-
-  -Documentation interactive (Swagger UI) : http://localhost:8080/api-docs/
+- [x] Partie 5 : Suppression & Authentification (tag: api-v2-delete)
+ - Ajout du champ 'secret' en base de données SQLite pour l'authentification des liens.
+ - Création de la route 'DELETE /api-v2/:url' sécurisée via l'en-tête 'X-API-Key' (codes HTTP 200, 401, 403, 404).
+ - Exclusion du champ 'secret' lors des réponses JSON sur la route 'GET /api-v2/:url'.
+ - Création de la documentation OpenAPI dans 'static/open-api.yaml' avec support du schéma de sécurité 'ApiKeyAuth'.
 
