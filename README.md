@@ -274,3 +274,11 @@ Fonctionnalités & Avancement
  - Exclusion du champ 'secret' lors des réponses JSON sur la route 'GET /api-v2/:url'.
  - Création de la documentation OpenAPI dans 'static/open-api.yaml' avec support du schéma de sécurité 'ApiKeyAuth'.
 
+## Démonstration et Tests
+
+### Interface Swagger OpenAPI
+![Swagger Auth](Capture d'écran 2026-10-18 175958.png)
+
+### Tests des routes avec curl
+![Tests Curl](Capture d'écran 2026-10-18 173209.png)
+![Tests Curl](Capture d'écran 2026-10-18 173117.png)
